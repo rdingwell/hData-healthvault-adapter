@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<schema
+    targetNamespace="urn:com.microsoft.wc.methods.PutThings"
+    xmlns:wc-getthings="urn:com.microsoft.wc.methods.PutThings"
+    xmlns:wc-types="urn:com.microsoft.wc.types"
+    xmlns:wc-thing="urn:com.microsoft.wc.thing"
+    xmlns="http://www.w3.org/2001/XMLSchema" >
+
+    <!--
+
+        METHOD-PUTTHINGS.XSD
+        Microsoft Wildcat
+
+        Platform API: Info schema for PuttThings method
+
+    -->
+
+    <import
+        namespace="urn:com.microsoft.wc.types"
+        schemaLocation="types.xsd" />
+
+    <import
+        namespace="urn:com.microsoft.wc.thing"
+        schemaLocation="thing.xsd" />
+
+    <annotation>
+        <documentation>
+            <summary>
+                This method allows a Thing to be created or updated.
+            </summary>
+
+            <remarks>
+
+            </remarks>
+            <method-visibility>Public</method-visibility>
+        </documentation>
+    </annotation>
+
+    <!-- PutThings - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <element name="info">
+        <complexType>
+            <annotation>
+                <documentation>
+                    <summary>
+                        The element of the request that contains the method
+                        specific parameters.
+                    </summary>
+
+                    <remarks>
+                        All requests contain the info element to pass parameters
+                        that are specific to each method. If the method does not
+                        define an info element, the method does not take any
+                        parameters.
+                    </remarks>
+                </documentation>
+            </annotation>
+            <sequence>
+                <element name="thing" type="wc-thing:Thing"
+                    minOccurs="1" maxOccurs="unbounded" >
+                    <annotation>
+                        <documentation>
+                            <summary>
+                                The thing to be created or updated. If the thing-id
+                                exists, then the previous thing is updated. If thing-id
+                                is not provided, then a new thing is created.
+                            </summary>
+
+                            <remarks>
+
+                            </remarks>
+                        </documentation>
+                    </annotation>
+                </element>
+
+            </sequence>
+        </complexType>
+    </element>
+
+</schema>

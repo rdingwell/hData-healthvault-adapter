@@ -1,0 +1,3 @@
+class AllergyInformationController < ApplicationController
+
+end

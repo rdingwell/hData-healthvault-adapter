@@ -1,0 +1,5 @@
+app_id: "e7a6a1c6-b31c-4876-ae2f-c68fc69fc275"
+url: "https://platform.healthvault-ppe.com/platform/wildcat.ashx"
+cert_file: "config/hData.pfx"
+cert_pass: ""
+  

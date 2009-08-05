@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema
+    targetNamespace="urn:com.microsoft.wc.application"
+    xmlns:wc-app="urn:com.microsoft.wc.application"
+    xmlns:wc-types="urn:com.microsoft.wc.types"
+    xmlns:wc-auth="urn:com.microsoft.wc.auth"        
+    xmlns="http://www.w3.org/2001/XMLSchema" >
+
+    <import
+        namespace="urn:com.microsoft.wc.types"
+        schemaLocation="types.xsd" />
+    <import
+        namespace="urn:com.microsoft.wc.auth"
+        schemaLocation="auth.xsd" />
+    
+    <annotation>
+        <documentation>
+            <summary>
+
+            </summary>
+
+            <remarks>
+
+            </remarks>
+        </documentation>
+    </annotation>
+    
+    <complexType name="App">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="wc-types:guid">
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="name" type="wc-types:string255">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="app-auth-required" type="boolean" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="is-published" type="boolean" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>            
+            
+            <element name="action-url" type="string" 
+                minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="description" type="string" minOccurs="0"
+                maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="auth-reason" type="string" minOccurs="0"
+                maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="domain-name" type="wc-types:string255"
+                     minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+                         This parameter specifies the application's domain 
+                         name. E-mail sent from the application, will have 
+                         its From address originating from this domain. If
+                         the domain were myapp.com, then the From address 
+                         will be "mailbox@myapp.com", where mailbox is 
+                         specified in the send message request from the app. 
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="client-service-token" type="wc-types:guid"
+                     minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+                            Access token for client services.
+                        </summary>
+
+                        <remarks>
+                            Token required to access HealthVault client services.
+                            For instance, the vocabulary search service.
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="persistent-tokens" 
+                type="wc-app:AppPersistentTokens"
+                minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+        </sequence>
+    </complexType>
+
+    <complexType name="AppWithLogos">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="id" type="wc-types:guid" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="name" type="wc-types:string255">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="app-auth-required" type="boolean" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="is-published" type="boolean" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="action-url" type="string" 
+                minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="description" type="string" minOccurs="0"
+                maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="auth-reason" type="string" minOccurs="0"
+                maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="domain-name" type="wc-types:string255"
+                     minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+                        This parameter specifies the application's domain
+                        name. E-mail sent from the application, will have
+                        its From address originating from this domain. If
+                        the domain were myapp.com, then the From address
+                        will be "mailbox@myapp.com", where mailbox is
+                        specified in the send message request from the app.
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="client-service-token" type="wc-types:guid"
+                     minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+                        Access token for client services.
+                        </summary>
+
+                        <remarks>
+                        Token required to access HealthVault client services.
+                        For instance, the vocabulary search service.
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="large-logo" type="wc-app:AppLargeLogoInfo"
+                minOccurs="0" maxOccurs="1" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            
+            <element name="small-logo" type="wc-app:AppSmallLogoInfo"
+                minOccurs="0" maxOccurs="1" >
+                <annotation>
+                    <documentation>
+                        <summary>
+                            
+                        </summary>
+
+                        <remarks>
+                            
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="persistent-tokens" 
+                type="wc-app:AppPersistentTokens"
+                minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="person-online-base-auth-xml" 
+                type="wc-auth:AuthXml">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="person-offline-base-auth-xml" 
+                type="wc-auth:AuthXml"
+                minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+        </sequence>
+    </complexType>
+
+    <!-- max 120 kb image becomes 160kb when base64 encoded -->
+    <simpleType name="AppLargeLogo">
+        <annotation>
+            <documentation>
+                <summary>
+                    
+                </summary>
+
+                <remarks>
+                    
+                </remarks>
+            </documentation>
+        </annotation>
+        <restriction base="base64Binary">
+            <minLength value="3" />
+            <maxLength value="163840" />
+        </restriction>
+    </simpleType>
+
+    <complexType name="AppLargeLogoInfo">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="logo" type="wc-app:AppLargeLogo">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="content-type" type="wc-types:string255">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+        </sequence>
+    </complexType>
+
+    <!-- max 30 kb image becomes 40kb when base64 encoded -->
+    <simpleType name="AppSmallLogo">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <restriction base="base64Binary">
+            <minLength value="3" />
+            <maxLength value="40960" />
+        </restriction>
+    </simpleType>
+
+    <complexType name="AppSmallLogoInfo">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="logo" type="wc-app:AppSmallLogo">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="content-type" type="wc-types:string255">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+        </sequence>
+    </complexType>
+    
+    <complexType name ="AppIdAndIncrAuth">
+        <sequence>
+            <element name="id" type="wc-types:guid">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="incr-online-auth-xml" 
+                     type="wc-auth:AuthXml" 
+                minOccurs="0">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="is-incr-online-auth-replace" type="boolean" minOccurs="0">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="incr-offline-auth-xml" 
+                     type="wc-auth:AuthXml" 
+                minOccurs="0">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="is-incr-offline-auth-replace" type="boolean" minOccurs="0">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="AppPersistentTokens">
+        <sequence>
+            <element name="enabled" type="boolean">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="token-ttl-seconds" type="int"
+                minOccurs="0" maxOccurs="1">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+
+    <simpleType name="PublicKey">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <restriction base="string">
+            <pattern value="[a-fA-F0-9]{512,4096}"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="PublicKeys">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="public-key" type="wc-app:PublicKey" minOccurs="1" maxOccurs="unbounded">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+
+    <simpleType name="Statement">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <restriction base="base64Binary">
+        </restriction>
+    </simpleType>
+    
+    <complexType name="StatementInfo">
+        <annotation>
+            <documentation>
+                <summary>
+
+                </summary>
+
+                <remarks>
+
+                </remarks>
+            </documentation>
+        </annotation>
+        <sequence>
+            <element name="statement" type="wc-app:Statement">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+            <element name="content-type" type="wc-types:string255">
+                <annotation>
+                    <documentation>
+                        <summary>
+
+                        </summary>
+
+                        <remarks>
+
+                        </remarks>
+                    </documentation>
+                </annotation>
+            </element>
+
+        </sequence>
+    </complexType>
+</schema>
+
