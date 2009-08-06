@@ -1,6 +1,20 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
+  map.resources :hdata_records do |hdata_records|
+    hdata_records.resources :patient_information
+    hdata_records.resources  :allergies
+    hdata_records.resources  :advance_directives
+    hdata_records.resources  :conditions
+    hdata_records.resources  :encounters
+    hdata_records.resources  :immunizations
+    hdata_records.resources  :insurance_providers
+    hdata_records.resources :medications 
+    hdata_records.resources  :procedures
+    hdata_records.resources  :results
+   
+  end
+  
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action

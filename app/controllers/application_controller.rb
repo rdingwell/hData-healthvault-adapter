@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     render :text=> "authenticated - auth_token is #{session[:auth_token]}"
   end
   
-   
+
   
   def check_authentication
     if session[:auth_token]

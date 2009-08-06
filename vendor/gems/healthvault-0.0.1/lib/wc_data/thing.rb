@@ -71,7 +71,12 @@ module HealthVault
         @@class_hash['7b2ea78c-4b78-4f75-a6a7-5396fe38b09a'] = HealthVault::WCData::Thing::Aerobicprofile::Aerobicprofile
         def self.guid_to_class(guid)
           return @@class_hash[guid]
-        end        
+        end      
+       def self.class_to_guid(klass)
+         guid = @@class_hash.find{|key,value| value == klass}
+         return guid ? guid[1] : nil 
+       end
+    
       end
     end
   end

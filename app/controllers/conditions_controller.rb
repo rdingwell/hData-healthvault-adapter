@@ -1,4 +1,5 @@
-class PatientInformationController < ApplicationController
+class ConditionsController < ApplicationController
+
 
 
   def index
@@ -6,8 +7,8 @@ class PatientInformationController < ApplicationController
     connection = app.create_connection
     connection.authenticate unless connection.authenticated?
     connection.user_auth_token = session[:auth_token]
-    res = HealthvaultApp.get_patient_info(params[:hdata_record_id],connection)
+    res = HealthvaultApp.get_conditions(params[:hdata_record_id],connection)
     render :xml=>res.xml.to_s
   end
-
+  
 end
