@@ -74,7 +74,7 @@ module HealthVault
         end      
        def self.class_to_guid(klass)
          guid = @@class_hash.find{|key,value| value == klass}
-         return guid ? guid[1] : nil 
+         return guid ? guid[0] : nil 
        end
     
       end

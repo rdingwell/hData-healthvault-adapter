@@ -95,4 +95,24 @@ module HealthvaultApp
   
   
   
+  def self.put_things(things,id,connection)   
+       request = Request.create("PutThings", connection)
+       request.header.record_id = id
+       
+       things.each do |thing |
+         th = HealthVault::WCData::Thing::Thing.new
+         th.type_id = HealthVault::WCData::Thing::Thing.class_to_guid thing.class
+         dx = HealthVault::WCData::Thing::DataXml.new
+         dx.anything = thing
+         th.add_data_xml dx
+         request.info.add_thing th
+       end
+       
+ 
+       request.send
+    
+  end
+  
+  
+  
 end

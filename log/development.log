@@ -1617,3 +1617,18 @@ Completed in 1205ms (View: 1, DB: 0) | 200 OK [http://localhost/hdata_records/31
 Processing ConditionsController#index (for 127.0.0.1 at 2009-08-06 10:09:59) [GET]
   Parameters: {"hdata_record_id"=>"31acde5a-9bdf-41cd-aadd-07c5aeb03ba8"}
 Completed in 1342ms (View: 1, DB: 0) | 200 OK [http://localhost/hdata_records/31acde5a-9bdf-41cd-aadd-07c5aeb03ba8/conditions]
+
+
+Processing PatientInformationController#index (for 127.0.0.1 at 2009-08-06 10:14:07) [GET]
+  Parameters: {"hdata_record_id"=>"31acde5a-9bdf-41cd-aadd-07c5aeb03ba8"}
+Completed in 1346ms (View: 1, DB: 0) | 200 OK [http://localhost/hdata_records/31acde5a-9bdf-41cd-aadd-07c5aeb03ba8/patient_information]
+
+
+Processing AllergiesController#index (for 127.0.0.1 at 2009-08-06 14:32:30) [GET]
+  Parameters: {"hdata_record_id"=>"31acde5a-9bdf-41cd-aadd-07c5aeb03ba8"}
+Completed in 1279ms (View: 1, DB: 0) | 200 OK [http://localhost/hdata_records/31acde5a-9bdf-41cd-aadd-07c5aeb03ba8/allergies]
+
+
+Processing ResultsController#index (for 127.0.0.1 at 2009-08-06 14:32:36) [GET]
+  Parameters: {"hdata_record_id"=>"31acde5a-9bdf-41cd-aadd-07c5aeb03ba8"}
+Completed in 1178ms (View: 1, DB: 0) | 200 OK [http://localhost/hdata_records/31acde5a-9bdf-41cd-aadd-07c5aeb03ba8/results]

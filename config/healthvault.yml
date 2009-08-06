@@ -1,5 +1,7 @@
-app_id: "e7a6a1c6-b31c-4876-ae2f-c68fc69fc275"
-url: "https://platform.healthvault-ppe.com/platform/wildcat.ashx"
-cert_file: "config/hData.pfx"
-cert_pass: ""
-  
+default:
+  app_id:     05a059c9-c309-46af-9b86-b06d42510550
+  cert_file:  <%= RAILS_ROOT %>/config/healthvault.pem
+  cert_pass: 
+  shell_url:  https://account.healthvault-ppe.com
+  hv_url:     https://platform.healthvault-ppe.com/platform/wildcat.ashx
+  logger:     :rails
