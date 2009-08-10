@@ -17,12 +17,14 @@ module HealthVault
         @@class_hash['5a8b14b6-2f8d-4c3d-aaa0-6eaf7cf194d2'] = HealthVault::WCData::Thing::Familyhistorycondition::Familyhistorycondition
         @@class_hash['02EF57A2-A620-425A-8E92-A301542CCA54'] = HealthVault::WCData::Thing::Dischargesummary::Dischargesummary
         @@class_hash['AEA2E8F2-11DD-4A7D-AB43-1D58764EBC19'] = HealthVault::WCData::Thing::Concern::Concern
-        @@class_hash['F57746AF-9631-49DC-944E-2C92BEE0D1E9'] = HealthVault::WCData::Thing::Labtestresults::Labtestresults
+        @@class_hash['F57746AF-9631-49DC-944E-2C92BEE0D1E9'] = HealthVault::WCData::Thing::Labtestresults::Labtestresults 
+        @@class_hash['5800eab5-a8c2-482a-a4d6-f1db25ae08c3'] = HealthVault::WCData::Thing::Labtestresults::Labtestresults 
         @@class_hash['227F55FB-1001-4D4E-9F6A-8D893E07B451'] = HealthVault::WCData::Thing::HbA1C::HbA1C
         @@class_hash['52bf9104-2c5e-4f1f-a66d-552ebcc53df7'] = HealthVault::WCData::Thing::Allergy::Allergy
         @@class_hash['e4501363-fb95-4a11-bb60-da64e98048b5'] = HealthVault::WCData::Thing::Aerobicweekly::Aerobicweekly
         @@class_hash['B8FCB138-F8E6-436A-A15D-E3A2D6916094'] = HealthVault::WCData::Thing::Microbiology::Microbiologylabresults
         @@class_hash['5C5F1223-F63C-4464-870C-3E36BA471DEF'] = HealthVault::WCData::Thing::Medication::Medication
+        @@class_hash['30cafccc-047d-4288-94ef-643571f7919d'] = HealthVault::WCData::Thing::Medication::Medication
         @@class_hash['6D39F894-F7AC-4FCE-AC78-B22693BF96E6'] = HealthVault::WCData::Thing::Familyhistory::Familyhistory
         @@class_hash['7ea7a1f9-880b-4bd4-b593-f5660f20eda8'] = HealthVault::WCData::Thing::Condition::Condition
         @@class_hash['4B18AEB6-5F01-444C-8C70-DBF13A2F510B'] = HealthVault::WCData::Thing::Appointment::Appointment
@@ -40,6 +42,7 @@ module HealthVault
         @@class_hash['bcb7157b-9e8a-4f13-aab6-4eed246d0902'] = HealthVault::WCData::Thing::Sjpm::Sleeppm
         @@class_hash['7AB3E662-CC5B-4BE2-BF38-78F8AAD5B161'] = HealthVault::WCData::Thing::Annotation::Annotation
         @@class_hash['3d817dbe-af42-4a9d-a553-d1298b4d08fc'] = HealthVault::WCData::Thing::Immunization::Immunization
+        @@class_hash['cd3587b5-b6e1-4565-ab3b-1c3ad45eb04f'] = HealthVault::WCData::Thing::Immunization::Immunization
         @@class_hash['464083cc-13de-4f3e-a189-da8e47d5651b'] = HealthVault::WCData::Thing::Encounter::Encounter
         @@class_hash['EF9CF8D5-6C0B-4292-997F-4047240BC7BE'] = HealthVault::WCData::Thing::Equipment::Device
         @@class_hash['d65ad514-c492-4b59-bd05-f3f6cb43ceb3'] = HealthVault::WCData::Thing::Allergicepisode::Allergicepisode
