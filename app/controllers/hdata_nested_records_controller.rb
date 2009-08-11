@@ -28,8 +28,10 @@ class HdataNestedRecordsController < ApplicationController
     connection.authenticate unless connection.authenticated?
     connection.user_auth_token = session[:auth_token]
     @res = HealthvaultApp.send  "get_#{self.class.get_module_name}".to_sym, params[:hdata_record_id],connection,[params[:id]]
-    
-    render :xml=>@res.xml.to_s
+     respond_to do |format|
+           format.xml
+         end
+    #render :xml=>@res.xml.to_s
   end
   
   
@@ -43,5 +45,8 @@ class HdataNestedRecordsController < ApplicationController
       render :text=>"", :status=>304
   end
   
-  
+  protected 
+  def check_for_error(resp)
+      
+  end
 end

@@ -23,8 +23,10 @@ module HealthVault
         @@class_hash['52bf9104-2c5e-4f1f-a66d-552ebcc53df7'] = HealthVault::WCData::Thing::Allergy::Allergy
         @@class_hash['e4501363-fb95-4a11-bb60-da64e98048b5'] = HealthVault::WCData::Thing::Aerobicweekly::Aerobicweekly
         @@class_hash['B8FCB138-F8E6-436A-A15D-E3A2D6916094'] = HealthVault::WCData::Thing::Microbiology::Microbiologylabresults
+        
         @@class_hash['5C5F1223-F63C-4464-870C-3E36BA471DEF'] = HealthVault::WCData::Thing::Medication::Medication
         @@class_hash['30cafccc-047d-4288-94ef-643571f7919d'] = HealthVault::WCData::Thing::Medication::Medication
+        
         @@class_hash['6D39F894-F7AC-4FCE-AC78-B22693BF96E6'] = HealthVault::WCData::Thing::Familyhistory::Familyhistory
         @@class_hash['7ea7a1f9-880b-4bd4-b593-f5660f20eda8'] = HealthVault::WCData::Thing::Condition::Condition
         @@class_hash['4B18AEB6-5F01-444C-8C70-DBF13A2F510B'] = HealthVault::WCData::Thing::Appointment::Appointment

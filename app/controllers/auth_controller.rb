@@ -14,4 +14,10 @@ class AuthController < ApplicationController
     
   end
   
+  def reauthenticate
+    
+    session[:auth_token]=nil
+    redirect_to "/"  
+   end
+  
 end

@@ -1,0 +1,4 @@
+<% @res.info.person_info.record.each do |record| %>
+  <%= link_to record.id,  hdata_record_url(record.id) %>
+  
+<% end %>

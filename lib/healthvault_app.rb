@@ -1,5 +1,20 @@
 require "healthvault"
 module HealthvaultApp
+  RESULT_TYPE_MAPPING = {"7b2ea78c-4b78-4f75-a6a7-5396fe38b09a"=> "aerobic_profile",
+           "879e7c04-4e8a-4707-9ad3-b054df467ce4"=> "blood_glucose",
+           "ca3c57f4-f4c1-4e15-be67-0a3caf5414ed"=> "blood_pressure",
+           "adaf49ad-8e10-49f8-9783-174819e97051"=> "cardiac_profile",
+           "796C186F-B874-471c-8468-3EEFF73BF66E"=> "cholesterol_profile",
+           "80CF4080-AD3F-4BB5-A0B5-907C22F73017"=> "diabetic_profile",
+           "F57746AF-9631-49DC-944E-2C92BEE0D1E9" => "labtest_result",
+           "5800eab5-a8c2-482a-a4d6-f1db25ae08c3" => "labtest_result",
+           "B8FCB138-F8E6-436A-A15D-E3A2D6916094"=> "microbiology_lab_result",
+           "E4911BD3-61BF-4E10-AE78-9C574B888B8F"=> "radiology_result",
+           "5fd15cb7-b717-4b1c-89e0-1dbcf7f815dd"=> "respitory_profile",
+           "921588d1-27bf-423c-8e55-650d2fedb3e0"=> "spirometer_result",
+           "73822612-C15F-4B49-9E65-6AF369E55C65"=> "vital_sign",
+           "3d34d87e-7fc1-4153-800f-f56592cb0d17"=> "weight"}
+           
   include HealthVault
   def self.createApp
      config = YAML.load(File.read(RAILS_ROOT + "/config/healthvault.yml"))
@@ -7,7 +22,11 @@ module HealthvaultApp
      HealthVault::Application.default #new(config["app_id"], config["url"] ,config["cert_file"], config["cert_pass"])
   end
   
-  
+  def self.get_person_info(connection)
+      request = Request.create("GetPersonInfo", connection)
+      request.send
+  end
+
   def self.get_patient_info(id, connection, ids=[])
      get_things(["bf516a61-5252-4c28-a979-27f45f62f78d", # basic demographic
                   "92ba621e-66b3-4a01-bd73-74844aed4f5b", # personal demographic
