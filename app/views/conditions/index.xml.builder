@@ -5,7 +5,7 @@ xml.feed('xmlns' => "http://www.w3.org/2005/Atom") do |feed|
   feed.author do |author|
     author.name('hData Healthvault Adapter')
   end
-  results = get_things_from_response(@res,[])
+  results = get_things_from_response(@res,[]) # they should all be conditions for this call
 
   results.each do |res|
     feed.entry do |entry|

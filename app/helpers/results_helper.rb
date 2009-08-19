@@ -16,12 +16,12 @@ module ResultsHelper
   
   def labtest_result_feed_title(xml,result)
     lb = result.data_xml[0].anything
-    xml.title("Labresults Date  - #{result_date_to_s(lb.when)}")
+    xml.title("Labresults Date  - #{format_hv_date(lb.when)}")
   end
   
   def weight_feed_title(xml,result)
     weight = result.data_xml[0].anything
-    xml.title("Weight - #{weight.value.kg} KG    Date - #{result_date_to_s(weight.when)}")
+    xml.title("Weight - #{weight.value.kg} KG    Date - #{format_hv_date(weight.when)}")
   
    
   end
@@ -29,18 +29,16 @@ module ResultsHelper
   def blood_pressure_feed_title(xml, result)
     
     bp = result.data_xml[0].anything
-    xml.title("Blood Pressure - #{bp.value.systolic} over #{bp.value.diastolic}  Date - #{result_date_to_s(bp.when)}")
+    xml.title("Blood Pressure - #{bp.value.systolic} over #{bp.value.diastolic}  Date - #{format_hv_date(bp.when)}")
   end
   
   def vital_sign_feed_title(xml,result)
     vs = result.data_xml[0].anything
-     xml.title("Vital - #{vs.vital_sign_result.name}   #{vs.vital_sign_result.value} #{vs.vital_sign_result.unit}  Date - #{result_date_to_s(vs.when)}")
+     xml.title("Vital - #{vs.vital_sign_result.name}   #{vs.vital_sign_result.value} #{vs.vital_sign_result.unit}  Date - #{format_hv_date(vs.when)}")
   end
   
   
-  def result_date_to_s(date)
-    "#{date.date.m}/#{date.date.d}/#{date.date.y}" if date
-  end
+
   
   
   def results_value(xml,result)
@@ -58,7 +56,7 @@ module ResultsHelper
   def blood_presure_value(xml)
      bp = result.data_xml[0].anything
      xml.type("blood pressure")
-    xml.value("xsi:type"=>"bp", "systolic"=>bp.value.systolic, "diastolic"=>bp.value.diastolic)
+    xml.value("xsi:type"=>"blood_pressure", "systolic"=>bp.value.systolic, "diastolic"=>bp.value.diastolic)
   end
   
   def vital_sign_value(xml, result)

@@ -18,14 +18,18 @@
 # end
 xml.patient('xmlns' => "http://projecthdata.org/hdata/schemas/2009/06/patient_information",
          'xmlns:core' => "http://projecthdata.org/hdata/schemas/2009/06/core") do |pi|
-          personal = get_things_from_response(@res,['92ba621e-66b3-4a01-bd73-74844aed4f5b'],false)
-          basic = get_things_from_response(@res,['bf516a61-5252-4c28-a979-27f45f62f78d'],false)
-          contact = get_things_from_response(@res,['162dd12d-9859-4a66-b75f-96760d67072b'],false)
+          personal = get_thing_from_response(@res,['92ba621e-66b3-4a01-bd73-74844aed4f5b'])
+          basic = get_thing_from_response(@res,['bf516a61-5252-4c28-a979-27f45f62f78d'])
+          contact = get_thing_from_response(@res,['162dd12d-9859-4a66-b75f-96760d67072b'])
+        
+        if personal
           pi.tag!("core:name") do |name|
               name.given personal.name.first
               name.last personal.name.last
           end
-          
+        end
+        
+        if contact
         contact.contact.address.each do |ca|
           pi.tag!("core:address") do |add|
             add.street(ca.street) if ca.street
@@ -43,13 +47,13 @@ xml.patient('xmlns' => "http://projecthdata.org/hdata/schemas/2009/06/patient_in
          contact.contact.email.each do |email|
           pi.tag!("core:telecom" ,  "value"=>"email:#{email.address}", "use"=>email.description )
         end
+        end
           
           pi.id params[:hdata_record_id]
           pi.gender(  "#{basic.gender}" , "code" => "#{{"MALE"=>"M","FEMALE"=>"F"}[basic.gender] || "UN"}", "codeSystem" => "HL7", "displayName" =>"#{basic.gender}" ) 
-          pi.birthTime personal.birthdate if personal.birthdate
-          pi.maritalStatus personal.marital_status if personal.marital_status
-          pi.race
-          
+          if personal
+            pi.birthTime format_hv_date(personal.birthdate) if personal.birthdate
+            pi.maritalStatus personal.marital_status if personal.marital_status
+          end
          
-     
 end
